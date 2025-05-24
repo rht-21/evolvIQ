@@ -14,7 +14,7 @@ const CTA = () => {
         companion and personalize it to your learning style.
       </p>
       <Image src="/images/cta.svg" alt="CTA" width={362} height={232} />
-      <Link href="/companion/new">
+      <Link href="/companions/new">
         <button className="btn-primary">
           <IconPlus size={20} stroke={1.5} />
           <p>Create New Companion</p>

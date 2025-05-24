@@ -12,7 +12,7 @@ import { SignedIn, SignedOut, SignInButton, UserButton } from "@clerk/nextjs";
 
 const navItems = [
   { label: "Homepage", href: "/" },
-  { label: "Companions", href: "/companion" },
+  { label: "Companions", href: "/companions" },
   { label: "My Journey", href: "/my-journey" },
   { label: "Subscription", href: "/subscription" },
 ];
