@@ -6,14 +6,9 @@ import ThemeToggle from "./ThemeToggle";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { cn } from "@/lib/utils";
-import {
-  Sheet,
-  SheetContent,
-  SheetHeader,
-  SheetTitle,
-  SheetTrigger,
-} from "./ui/sheet";
+import { Sheet, SheetContent, SheetTitle, SheetTrigger } from "./ui/sheet";
 import { IconMenu } from "@tabler/icons-react";
+import { SignedIn, SignedOut, SignInButton, UserButton } from "@clerk/nextjs";
 
 const navItems = [
   { label: "Homepage", href: "/" },
@@ -39,6 +34,14 @@ const NavItems = () => {
           {item.label}
         </Link>
       ))}
+      <SignedOut>
+        <SignInButton>
+          <button className="btn-signin">Sign In</button>
+        </SignInButton>
+      </SignedOut>
+      <SignedIn>
+        <UserButton />
+      </SignedIn>
     </div>
   );
 };
@@ -52,11 +55,9 @@ const MobileNav = () => {
       <SheetTrigger className="max-sm:block hidden" asChild>
         <IconMenu stroke={1.5} className="text-foreground cursor-pointer" />
       </SheetTrigger>
-      <SheetContent>
-        <SheetHeader>
-          <SheetTitle className="sr-only" />
-        </SheetHeader>
-        <div className="flex flex-col p-8 text-xl gap-8">
+      <SheetContent className="flex justify-between px-8 py-12">
+        <SheetTitle className="sr-only" />
+        <div className="flex flex-col text-xl gap-8">
           {navItems.map((item: { label: string; href: string }) => (
             <Link
               key={item.label}
@@ -71,6 +72,14 @@ const MobileNav = () => {
             </Link>
           ))}
         </div>
+        <SignedOut>
+          <SignInButton>
+            <button className="btn-signin">Sign In</button>
+          </SignInButton>
+        </SignedOut>
+        <SignedIn>
+          <UserButton />
+        </SignedIn>
       </SheetContent>
     </Sheet>
   );
@@ -78,7 +87,7 @@ const MobileNav = () => {
 
 const Navbar = () => {
   return (
-    <nav className="sticky top-0 z-50 flex items-center justify-between mx-auto w-full md:px-14 px-8 py-4 max-sm:px-4 bg-background">
+    <nav className="sticky top-0 flex items-center justify-between mx-auto w-full md:px-14 px-8 py-4 max-sm:px-4 bg-background">
       <Logo />
       <div className="flex items-center gap-8 max-sm:gap-4">
         <NavItems />

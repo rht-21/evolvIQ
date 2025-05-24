@@ -62,7 +62,7 @@
   --accent-foreground: #09814a;
   --destructive: #bc3539;
   --border: #686868;
-  --input: #ebeaea;
+  --input: #686868;
   --ring: #b3b3b3;
   --chart-1: #b84838;
   --chart-2: #5266a3;
@@ -140,9 +140,6 @@
   .companion-bookmark {
     @apply px-2 bg-black rounded-4xl flex items-center h-full aspect-square cursor-pointer;
   }
-  .input {
-    @apply !border-black !bg-white focus-visible:!ring-0 focus-visible:!border-black !w-full;
-  }
   .rounded-border {
     @apply rounded-4xl border border-black;
   }
@@ -150,7 +147,7 @@
     @apply bg-black duration-200 hover:bg-neutral-900 text-white rounded-xl cursor-pointer px-4 py-2 flex items-center gap-2;
   }
   .btn-signin {
-    @apply border border-black rounded-4xl px-4 py-2.5 text-sm font-semibold flex items-center gap-2 cursor-pointer;
+    @apply bg-primary text-white rounded-4xl px-4 max-sm:py-2.5 py-2 text-sm font-semibold flex items-center justify-between gap-2 cursor-pointer;
   }
   .companion-list {
     @apply rounded-4xl border border-border px-7 pt-7 pb-10 max-lg:w-full bg-card text-card-foreground;
@@ -199,5 +196,8 @@
   .no-scrollbar {
     -ms-overflow-style: none;
     scrollbar-width: none;
+  }
+  .cl-drawerContent {
+    @apply !z-50;
   }
 }

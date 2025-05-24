@@ -3,6 +3,7 @@ import { Bricolage_Grotesque } from "next/font/google";
 import "./globals.css";
 import { ThemeProvider } from "@/components/theme-provider";
 import Navbar from "@/components/Navbar";
+import { ClerkProvider } from "@clerk/nextjs";
 
 const Bricolage = Bricolage_Grotesque({
   subsets: ["latin"],
@@ -59,8 +60,14 @@ export default function RootLayout({
           enableSystem
           disableTransitionOnChange
         >
-          <Navbar />
-          {children}
+          <ClerkProvider
+            appearance={{
+              variables: { colorPrimary: "#1a935d" },
+            }}
+          >
+            <Navbar />
+            {children}
+          </ClerkProvider>
         </ThemeProvider>
       </body>
     </html>
